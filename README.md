@@ -8,4 +8,6 @@ Assignment Summary:
 3.	ThingNode: a linked list Node where the data part is of type "Thing".
 4.	ThingLinkedBag: a collection of "Things" in which the elements are stored in an unordered linked list.
 5.	ThingLinkedBagDriver: includes a main method to test the functionality of your collection.
+6.  Comment each class using Javadocs style; identify any "borrowed" code.
+
 
