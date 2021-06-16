@@ -38,12 +38,10 @@ import java.util.Iterator;
 *     - removes the last Guitar in the linked list
 */
 public class GuitarLinkedBag {
-
 	GuitarNode head;
 	int manyItems;
-
+	
 	public GuitarLinkedBag() {
-
 		head = null;
 		manyItems = 0;
 	}
@@ -59,7 +57,6 @@ public class GuitarLinkedBag {
 	 *         the linked list.
 	 */
 	public int size() {
-
 		return manyItems;
 	}
 
@@ -72,9 +69,7 @@ public class GuitarLinkedBag {
 	 *               iterate through the linked list to display each Guitar.
 	 */
 	public void display() {
-
 		GuitarNode cursor = head;
-
 		System.out.println("\n\tBrand\t\tWeight\t\tYear\n\t------------------------------------");
 		while (cursor != null) {
 			System.out.println(cursor.getData());
@@ -107,9 +102,7 @@ public class GuitarLinkedBag {
 	 * 
 	 */
 	public void add(Guitar element) {
-
 		GuitarNode cursor = head;
-
 		if (cursor == null) {
 			head = new GuitarNode(element, null);
 		} else if (cursor.getData().compareTo(element) > 0) {
@@ -142,9 +135,7 @@ public class GuitarLinkedBag {
 	 *                position.
 	 */
 	public void add(int index, Guitar element) {
-
 		GuitarNode cursor = head;
-
 		if (cursor == null) {
 			head = new GuitarNode(element, null);
 		} else {
@@ -175,9 +166,7 @@ public class GuitarLinkedBag {
 	 * @return false     if it Guitar is not removed.
 	 */
 	public boolean remove(Guitar element) {
-
 		GuitarNode targetNode; // The node that contains the target
-
 		targetNode = GuitarNode.listSearch(head, element);
 		if (targetNode == null) {
 			return false;
@@ -207,9 +196,7 @@ public class GuitarLinkedBag {
 	 * @return false if Guitar is not removed.
 	 */
 	public boolean remove(int index) {
-
 		GuitarNode cursor = head;
-
 		for (int i = 1; i < index - 1; i++) {
 			if (cursor == null) {
 				return false;
@@ -241,9 +228,7 @@ public class GuitarLinkedBag {
 	 * @return false if Guitar is not removed.
 	 */
 	public int countRange(Guitar start, Guitar end) {
-
 		int countRange = 0;
-
 		GuitarNode cursor = head;
 		while (cursor != null) {
 			if (cursor.getData().compareTo(start) == 0) {
@@ -274,9 +259,7 @@ public class GuitarLinkedBag {
 	 *         number of items in the linked list,
 	 */
 	public Guitar grab(int index) {
-
 		GuitarNode cursor;
-
 		if (manyItems == 0) {
 			throw new IllegalStateException("Bag size is zero");
 		}
@@ -300,11 +283,9 @@ public class GuitarLinkedBag {
 	 *         list, or -1 if the Guitar does not appear in the linked list.
 	 */
 	public int indexOf(Guitar target) {
-
 		GuitarNode cursor = head;
 		int index = 0;
 		int length = GuitarNode.listLength(cursor);
-
 		for (int i = 0; i <= length; i++) {
 			index++;
 			if (cursor.getData().equals(target)) {
@@ -330,10 +311,8 @@ public class GuitarLinkedBag {
 	 *                position.
 	 */
 	public void set(int index, Guitar element) {
-
 		GuitarNode cursor = head;
 		int count = GuitarNode.listLength(cursor);
-
 		for (int i = 0; i <= count; i++) {
 			if (i == index - 1) {
 				cursor.setData(element);
@@ -360,10 +339,8 @@ public class GuitarLinkedBag {
 	 * @ return false if old Guitar is not found.
 	 */
 	public boolean replace(Guitar oldThing, Guitar newThing) {
-
 		GuitarNode cursor = head;
 		int length = GuitarNode.listLength(cursor);
-
 		for (int i = 1; i <= length; i++) {
 			if (cursor.getData().equals(oldThing)) {
 				cursor.setData(newThing);
@@ -388,13 +365,10 @@ public class GuitarLinkedBag {
 	 *                     linked list.
 	 */
 	public int totalValue() {
-
 		GuitarNode cursor = head;
 		int totalWeight = 0;
 		int length = GuitarNode.listLength(cursor);
-
 		for (int i = 1; i <= length; i++) {
-
 			totalWeight += cursor.getData().getWeight();
 			cursor = cursor.getLink();
 		}
@@ -420,13 +394,10 @@ public class GuitarLinkedBag {
 	 *                     element from the original linked list.
 	 */
 	public GuitarNode lessThan(Guitar element) {
-
 		GuitarNode cursor = head;
 		GuitarLinkedBag output = new GuitarLinkedBag();
 		int index = indexOf(element);
-
 		for (int i = 1; i <= index; i++) {
-
 			if (cursor.getData().compareTo(element) <= 0) {
 				output.add(cursor.getData());
 				cursor = cursor.getLink();
@@ -454,13 +425,10 @@ public class GuitarLinkedBag {
 	 *                     the original linked list.
 	 */
 	public GuitarNode greaterThan(Guitar element) {
-
 		GuitarNode cursor = head;
 		GuitarLinkedBag output = new GuitarLinkedBag();
 		int length = GuitarNode.listLength(cursor);
-
 		for (int i = 1; i <= length; i++) {
-
 			if (cursor.getData().compareTo(element) > 0) {
 				output.add(cursor.getData());
 			}
@@ -482,12 +450,9 @@ public class GuitarLinkedBag {
 	 *                          based on alphabetical order by brand.
 	 */
 	public Guitar getMax() {
-
 		GuitarNode cursor = head;
 		int length = GuitarNode.listLength(cursor);
-
 		for (int i = 1; i < length; i++) {
-
 			if (cursor.getData().compareTo(cursor.getLink().getData()) < 0) {
 				cursor = cursor.getLink();
 			}
@@ -509,13 +474,10 @@ public class GuitarLinkedBag {
 	 *                   alphabetical order of brand.
 	 */
 	public Guitar getMin() {
-
 		GuitarNode cursor = head;
 		int length = GuitarNode.listLength(cursor);
 		Guitar minGuitar = cursor.getData();
-
 		for (int i = 1; i < length; i++) {
-
 			if (cursor.getData().compareTo(cursor.getLink().getData()) > 0) {
 				minGuitar = cursor.getData();
 			}
@@ -534,10 +496,8 @@ public class GuitarLinkedBag {
 	 * @param length  represents the linked list length.
 	 */
 	void addLast(Guitar element) {
-
 		GuitarNode cursor = head;
 		int length = GuitarNode.listLength(cursor);
-
 		for (int i = 1; cursor.getLink() != null && i <= length; i++) {
 			cursor = cursor.getLink();
 		}
@@ -555,10 +515,8 @@ public class GuitarLinkedBag {
 	 * @param length represents the linked list length.
 	 */
 	void removeLast() {
-
 		GuitarNode cursor = head;
 		int length = GuitarNode.listLength(cursor);
-
 		for (int i = 1; cursor.getLink() != null && i < length - 1; i++) {
 			cursor = cursor.getLink();
 		}
