@@ -1,6 +1,5 @@
 
 public class GuitarNode {
-
 	private Guitar data;
 	private GuitarNode link;
 
@@ -13,15 +12,12 @@ public class GuitarNode {
 	public Guitar getData() {
 		return data;
 	}
-
 	public void setData(Guitar element) {
 		data = element;
 	}
-
 	public GuitarNode getLink() {
 		return link;
 	}
-
 	public void setLink(GuitarNode link) {
 		this.link = link;
 	}
@@ -99,7 +95,6 @@ public class GuitarNode {
 		for (cursor = head; cursor != null; cursor = cursor.getLink()) {
 			counter++;
 		}
-
 		return counter;
 	}
 
@@ -130,7 +125,6 @@ public class GuitarNode {
 	 * This method displays a Guitar on a single line.
 	 */
 	public void display() {
-
 		System.out.println(this.data);
 	}
 }
