@@ -2,7 +2,6 @@
  * @author Stephanie Shinn
  */
 public class GuitarLinkedBagDriver {
-
 	public static void main(String[] args) {
 
 		//instantiates new Guitars for testing methods
